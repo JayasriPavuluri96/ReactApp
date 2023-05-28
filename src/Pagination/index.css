@@ -1,0 +1,59 @@
+.pagination-button {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.pagination-pagesize-values {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  padding-left: 20px;
+  padding-right: 20px;
+  cursor: pointer;
+}
+
+.pagination-pagesize-values:hover {
+  background-color: beige;
+}
+
+.pagination-pagesize-card {
+  background-color: #ffffff;
+  border-radius: 4px;
+  box-shadow: 0 5px 8px rgba(0, 0, 0, 0.5);
+  padding: 10px 0px;
+  width: 60px;
+}
+
+.page-dropdown {
+  width: 60px;
+}
+
+.page-input {
+   width: 30px;
+   text-align: center;
+}
+
+.page-arrows {
+  margin-top: 2px;
+  cursor: pointer;
+}
+
+.disable-arrows {
+  cursor: default;
+  color: gray;
+}
+
+.pagination {
+  display: flex;
+  text-align: center;
+}
+
+.page-nav {
+  user-select: none;
+}
