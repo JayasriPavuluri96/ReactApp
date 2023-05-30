@@ -14,9 +14,10 @@ export const PageNavigation = () => {
   const [number, setNumber] = useState(1);
 
   const prevPage = () => {
+    
     if (number > 1) {
       setNumber(Number(number) - 1);
-
+      
     }
   };
 
@@ -35,10 +36,12 @@ export const PageNavigation = () => {
   };
 
   return (
-    <div className="page-nav">
+    <div className="page-nav"> 
       <AiOutlineDoubleLeft className={`page-arrows ${Number(number) === 1 ? "disable-arrows" : ""}`} onClick={firstPage} />
       <AiOutlineLeft className={`page-arrows ${Number(number) === 1 ? "disable-arrows" : ""}`} onClick={prevPage} />
-      <PageInput number={number} setNumber={setNumber} />
+       <span className="page-content"> Page </span>
+      <PageInput number={number} setNumber={setNumber} pageCount={pageCount}/>
+       <span className="page-content"> of 10 </span>
       <AiOutlineRight className={`page-arrows ${Number(number) === pageCount ? "disable-arrows" : ""}`} onClick={nextPage} />
       <AiOutlineDoubleRight className={`page-arrows ${Number(number) === pageCount ? "disable-arrows" : ""}`} onClick={lastPage} />
     </div>

@@ -1,3 +1,4 @@
+import { tableData } from "../tableData";
 import { PageNavigation } from "./PageNavigation";
 import { PageSizeDropdown } from "./PageSizeDropdown";
 import "./index.css";

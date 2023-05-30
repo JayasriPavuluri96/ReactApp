@@ -23,6 +23,7 @@ export const PageSizeDropdown = ({
     setSelectedSize(sizeLabel);
     setIsOpen(false);
   };
+  
   const dropdownRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
     const handleOutsideClick = (event: any) => {

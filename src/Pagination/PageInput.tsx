@@ -1,30 +1,29 @@
 import { Dispatch, SetStateAction, useState } from "react";
 
-
-interface PageInputProps{
-    number:number;
-    setNumber:Dispatch<SetStateAction<number>>;
-    
+interface PageInputProps {
+  number: number;
+  setNumber: Dispatch<SetStateAction<number>>;
+  pageCount: number;
 }
 
-export const PageInput = ({number, setNumber}:PageInputProps) => {
-
-
+export const PageInput = ({ number, setNumber, pageCount }: PageInputProps) => {
   const handleClick = (event: any) => {
-    const input = parseInt(event.target.value);
+    const input = event.target.value;
+    const regex = /^[0-9\b]+$/;
 
-    if (event.target.value === "" ||(!isNaN(input) && input > 0)) {
-      setNumber(event.target.value);
+    if (
+      input === "" ||
+      (regex.test(input) &&
+        input > 0 &&
+        input <= 10)
+    ) {
+      setNumber(input);
     }
   };
 
-  const handleKeyUp = (event:any) => {
-    if (event.key === "Enter") {
-      const inputValue = parseInt(event.target.value);
-
-      if (!isNaN(inputValue) && inputValue >= 0) {
-        setNumber(inputValue);
-      }
+  const handleKeyUp = (event: any) => {
+    if(event.key === "Enter"){
+      handleClick(event);
     }
   };
 
