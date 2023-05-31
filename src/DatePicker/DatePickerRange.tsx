@@ -1,11 +1,7 @@
 import { ChangeEvent, useCallback } from "react";
 import "./index.css";
+import { DatePickerRangeOptions } from "./types";
 
-export interface DatePickerRangeOptions {
-  from_date: Date;
-  to_date: Date;
-  onChange: (fromDate: Date, toDate: Date) => void;
-}
 
 export function DatePickerRange({
   from_date,
@@ -17,9 +13,10 @@ export function DatePickerRange({
       const fromDate = new Date(event.target.value);
       if (fromDate < to_date) {
         onChange(fromDate, to_date);
-      } else {
+      } 
+      /*else {
         onChange(to_date, fromDate);
-      }
+      }*/
     },
     [from_date, to_date]
   );
@@ -39,9 +36,9 @@ export function DatePickerRange({
 
   return (
     <div>
-      <span className="text-sm font-medium">Start Date:</span> &nbsp;{" "}
+      <span>Start Date:</span> &nbsp;{" "}
       <input
-        className="px-4 py-2 border rounded-md"
+        className="date-range"
         type="date"
         value={from_date.toISOString().split("T")[0]}
         onChange={handleFromDateChange}
