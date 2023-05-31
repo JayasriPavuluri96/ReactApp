@@ -2,7 +2,6 @@ import { ChangeEvent, useCallback } from "react";
 import "./index.css";
 import { DatePickerRangeOptions } from "./types";
 
-
 export function DatePickerRange({
   from_date,
   to_date,
@@ -13,10 +12,9 @@ export function DatePickerRange({
       const fromDate = new Date(event.target.value);
       if (fromDate < to_date) {
         onChange(fromDate, to_date);
-      } 
-      /*else {
-        onChange(to_date, fromDate);
-      }*/
+      } else {
+        onChange(fromDate, fromDate);
+      }
     },
     [from_date, to_date]
   );
@@ -27,8 +25,7 @@ export function DatePickerRange({
       if (toDate > from_date) {
         onChange(from_date, toDate);
       } else {
-        const currentDate = new Date();
-        onChange(toDate, currentDate);
+        onChange(toDate, toDate);
       }
     },
     [to_date, from_date]

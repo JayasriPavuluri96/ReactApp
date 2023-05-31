@@ -4,6 +4,7 @@ import { DatePicker } from "./DatePicker/DatePicker";
 import { Pagination } from "./Pagination";
 import { Table } from "./Table";
 import { DatePickerRange } from "./DatePicker/DatePickerRange";
+import { SelectOptions } from "./SelectComponent/AddListItemsToSelect";
 
 
 
@@ -26,6 +27,7 @@ function App() {
           setDateRange({ from_date: fromDate, to_date: toDate });
         }}
       />
+      <SelectOptions/>
     </div>
   );
 }
