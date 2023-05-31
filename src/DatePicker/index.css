@@ -1,8 +1,17 @@
-.datepicker{
-    border-radius: 15px;
+input{
+    border-radius: 5px;
     padding: 20px;
     padding-top: 10px;
     padding-bottom: 10px;
     margin-top: 30px;
 }
+
+.date-range{
+    margin-top:20Px;
+   
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
