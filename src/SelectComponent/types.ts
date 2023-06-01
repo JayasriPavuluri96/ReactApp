@@ -1,10 +1,5 @@
-export type SingleSelectProps<Type> = {
-    user: User<Type>;
-    render: () => string;
-}
-
-
-export type User<Type> = {
-    id: number,
-    Name: Type,
-}
+export type SingleSelectProps<T extends { id: number; Name: string }> = {
+    users: Array<T>;
+    render: (user: T) => string;
+};
+  

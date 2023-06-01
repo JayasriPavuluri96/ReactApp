@@ -1,12 +1,10 @@
 import { useState } from "react";
-import { PageSizeValues } from "./constants";
+import { PageSizeValues, UserValues } from "./constants";
 import { DatePicker } from "./DatePicker/DatePicker";
 import { Pagination } from "./Pagination";
 import { Table } from "./Table";
 import { DatePickerRange } from "./DatePicker/DatePickerRange";
-import { SelectOptions } from "./SelectComponent/AddListItemsToSelect";
-
-
+import { SingleSelect } from "./SelectComponent/SingleSelect";
 
 function App() {
   const [selectedDate, setSelectedDate] = useState<Date>(new Date());
@@ -14,6 +12,7 @@ function App() {
     from_date: Date;
     to_date: Date;
   }>({ from_date: new Date(), to_date: new Date() });
+ 
 
   return (
     <div className="App">
@@ -27,7 +26,10 @@ function App() {
           setDateRange({ from_date: fromDate, to_date: toDate });
         }}
       />
-      <SelectOptions/>
+      <SingleSelect
+        users={UserValues != undefined ? UserValues : []}
+        render={(user: { id: number; Name: string }) => user.Name}
+      />
     </div>
   );
 }

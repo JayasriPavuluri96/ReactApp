@@ -1,0 +1,13 @@
+.select-comp {
+    border-radius: 5px;
+    padding: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-top: 30px;
+    margin-bottom: 100px;
+    width: 50%;
+}
+
+.select-full{
+   margin-top: 20px;
+}
