@@ -1,0 +1,8 @@
+.button-class{
+    display:flex;
+    flex-direction: column;   
+    color: blue;
+    margin-top: 40px;
+    margin-left: 20px;
+    padding-block: 5px;
+}
