@@ -1,43 +1,36 @@
-import { ChangeEvent, useState } from "react";
-import "./index.css";
-import { SingleSelectProps } from "./types";
+import React, { useState } from 'react';
 
-export const SingleSelect = <T extends unknown>({
-  users,
-  render,
-  user,
-  onChange,
-}: SingleSelectProps<T>) => {
-  const [isOpen, setIsOpen] = useState<Boolean>(false);
+type SingleSelectProps<T extends User> = {
+  users: Array<T>;
+  render: (user: T) => string;
+  onSelect: (user: T) => void;
+};
 
-  const selectUser = (option: any) => {
-    if (option != user) {
-      onChange(option);
-    }
-  };
+type User = {
+  id: number;
+  Name: string;
+};
 
-  const isUserSelected = (option: any) => {
-    return option === user;
+export const SingleSelect = <T extends User>(props: SingleSelectProps<T>) =>{
+  const [selectedUser, setSelectedUser] = useState<T | null>(null);
+
+  const handleSelect = (user: T) => {
+    setSelectedUser(user);
+    props.onSelect(user);
   };
 
   return (
-    <div className="container" onClick={(p) => setIsOpen(!p)}>
-      <div className="divider"></div>
-      <div className="caret"></div>
-      <ul className={`$options ${isOpen ? "show" : ""}`}>
-        {users.map((user, index) => (
-          <li
-            className={`$options ${isUserSelected(user) ? "selected" : ""}`}
-            key={index}
-            onClick={() => {
-              selectUser;
-              setIsOpen(false);
-            }}
-          >
-            {render(user)}
-          </li>
+    <div>
+      <select value={selectedUser?.id} onChange={(e) => handleSelect(props.users.find((user) => user.id === parseInt(e.target.value))!)}>
+        <option value={0}>Select User</option>
+        {props.users.map((user) => (
+          <option key={user.id} value={user.id}>
+            {props.render(user)}
+          </option>
         ))}
-      </ul>
+      </select>
     </div>
   );
-};
+}
+
+
